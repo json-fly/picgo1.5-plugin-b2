@@ -16,7 +16,7 @@ var isAPIValid = function(apiConfig) {
 
 var freshenAPI = async function(ctx, userConfig, apiConfig) {
     // version compatible
-    var CtxRequest = ctx.Request.request || ctx.request
+    var CtxRequest = ctx.request
 
     // 1. B2_API: b2_authorize_account
     let appIDKey = userConfig.applicationKeyId +
@@ -27,7 +27,6 @@ var freshenAPI = async function(ctx, userConfig, apiConfig) {
     const a1GetOpt = Get_Options_B2_Authorize_Account(auth)
     let requestTime = new Date()
     let body = await CtxRequest(a1GetOpt)
-    body = JSON.parse(body)
     if (!body.accountId) {
         throw new Error("get B2_Authorize_Account Failed")
     }

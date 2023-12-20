@@ -1,6 +1,6 @@
 var uploadImage = async function(ctx) {
     // version compatible
-    var CtxRequest = ctx.Request.request || ctx.request
+    var CtxRequest = ctx.request
 
     const apiConfig = ctx.getConfig('b2')
     const uploadUrl =
